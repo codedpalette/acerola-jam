@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bun4esn866508"]
+
+[ext_resource type="Script" path="res://scripts/laser.gd" id="1_304nc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb233"]
+size = Vector2(128, 128)
+
+[node name="Laser" type="StaticBody2D"]
+script = ExtResource("1_304nc")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 0.25098, 1)
+polygon = PackedVector2Array(2.08165e-12, -64, 16, -32, 48, -48, 32, 2.08165e-12, 64, 64, -64, 64, -32, 2.08165e-12, -48, -48, -16, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_hb233")
+
+[node name="LaserRay" type="RayCast2D" parent="."]
+position = Vector2(0, -64)
+rotation = -3.14159
+target_position = Vector2(2.08165e-12, 2000)
