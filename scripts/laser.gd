@@ -6,6 +6,10 @@ class_name Laser
 @onready var sprite: Polygon2D = $Rotator/Polygon2D
 @onready var laser_ray: RayCast2D = $Rotator/LaserRay
 
+signal hit_target
+
+var stopped = false
+
 var collision_point: Vector2:
 	set(value):
 		if collision_point != value:
@@ -19,6 +23,10 @@ func _physics_process(_delta):
 	if laser_ray.is_colliding():
 		var global_collision_point = laser_ray.get_collision_point()
 		collision_point = to_local(global_collision_point)
+		if laser_ray.get_collider().name == "Target":
+			stopped = true
+			hit_target.emit()
 
 func rotate_laser(radians: float):
-	rotator.rotate(radians)
+	if !stopped:
+		rotator.rotate(radians)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bugimb45x04l2"]
+
+[node name="Target" type="StaticBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(2.08165e-12, -50, 50, 2.08165e-12, 2.08165e-12, 50, -50, 2.08165e-12)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(2.08165e-12, -50, 50, 2.08165e-12, 2.08165e-12, 50, -50, 2.08165e-12)
