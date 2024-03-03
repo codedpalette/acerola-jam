@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://binxilhcomp46"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_247d5"]
-[ext_resource type="PackedScene" uid="uid://clapgf84hdqeo" path="res://scenes/platform.tscn" id="2_82afw"]
+[ext_resource type="PackedScene" uid="uid://cigweueptsgnh" path="res://scenes/bounds.tscn" id="2_apyy0"]
 [ext_resource type="PackedScene" uid="uid://cqluxirx3v8cd" path="res://scenes/player.tscn" id="3_ifeya"]
 [ext_resource type="PackedScene" uid="uid://bun4esn866508" path="res://scenes/laser.tscn" id="4_0kuhj"]
 [ext_resource type="PackedScene" uid="uid://bugimb45x04l2" path="res://scenes/target.tscn" id="5_rfmtx"]
@@ -10,25 +10,7 @@
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_247d5")
 
-[node name="Walls" type="Node" parent="."]
-
-[node name="Wall_left" parent="Walls" instance=ExtResource("2_82afw")]
-position = Vector2(-52, 540)
-rotation = 1.57079
-scale = Vector2(1.10128, 0.999967)
-
-[node name="Wall_right" parent="Walls" instance=ExtResource("2_82afw")]
-position = Vector2(1977, 550)
-rotation = 1.57079
-scale = Vector2(1.10128, 0.999967)
-
-[node name="Wall_down" parent="Walls" instance=ExtResource("2_82afw")]
-position = Vector2(977, 1138)
-scale = Vector2(1.94945, 1)
-
-[node name="Wall_up" parent="Walls" instance=ExtResource("2_82afw")]
-position = Vector2(984, -53)
-scale = Vector2(1.94945, 1)
+[node name="Bounds" parent="." instance=ExtResource("2_apyy0")]
 
 [node name="Player" parent="." instance=ExtResource("3_ifeya")]
 position = Vector2(149, 251)

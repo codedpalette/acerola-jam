@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cigweueptsgnh"]
+
+[ext_resource type="PackedScene" uid="uid://clapgf84hdqeo" path="res://scenes/wall.tscn" id="1_dmqcm"]
+
+[node name="Bounds" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Wall_left" parent="." instance=ExtResource("1_dmqcm")]
+position = Vector2(-52, 540)
+rotation = 1.57079
+scale = Vector2(1.10128, 0.999967)
+
+[node name="Wall_right" parent="." instance=ExtResource("1_dmqcm")]
+position = Vector2(1977, 550)
+rotation = 1.57079
+scale = Vector2(1.10128, 0.999967)
+
+[node name="Wall_down" parent="." instance=ExtResource("1_dmqcm")]
+position = Vector2(977, 1138)
+scale = Vector2(1.94945, 1)
+
+[node name="Wall_up" parent="." instance=ExtResource("1_dmqcm")]
+position = Vector2(984, -53)
+scale = Vector2(1.94945, 1)
