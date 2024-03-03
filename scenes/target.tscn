@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://bugimb45x04l2"]
+[gd_scene load_steps=2 format=3 uid="uid://bugimb45x04l2"]
+
+[ext_resource type="Script" path="res://scripts/target.gd" id="1_tmm53"]
 
 [node name="Target" type="StaticBody2D"]
+script = ExtResource("1_tmm53")
+metadata/_edit_group_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0, 1, 0, 1)

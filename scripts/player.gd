@@ -1,9 +1,10 @@
+class_name Player
 extends CharacterBody2D
-
-const SPEED = 500.0
 
 @onready var influence: Area2D = $Influence
 var influencing_laser: Laser
+
+const SPEED = 500.0
 
 func _ready():
 	influence.connect("body_entered", _on_body_entered)
@@ -22,6 +23,9 @@ func _physics_process(_delta):
 func _on_body_entered(body: Node2D):
 	if body is Laser:
 		influencing_laser = body
+	elif body is Door and body.is_open:
+		print("You win")
+		queue_free()
 
 func _on_body_exited(body: Node2D):
 	if body == influencing_laser:

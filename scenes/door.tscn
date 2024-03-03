@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw1wt7nffec45"]
+
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_5vwoe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdejj"]
+size = Vector2(128, 128)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_5vwoe")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wdejj")
