@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://g7sdsh21bblx"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_5mdkk"]
+[ext_resource type="PackedScene" uid="uid://clapgf84hdqeo" path="res://scenes/platform.tscn" id="2_lnwpm"]
+[ext_resource type="PackedScene" uid="uid://cqluxirx3v8cd" path="res://scenes/player.tscn" id="3_w5fnd"]
+[ext_resource type="PackedScene" uid="uid://bun4esn866508" path="res://scenes/laser.tscn" id="4_14ux8"]
+[ext_resource type="PackedScene" uid="uid://bugimb45x04l2" path="res://scenes/target.tscn" id="5_v1tef"]
+[ext_resource type="PackedScene" uid="uid://bw1wt7nffec45" path="res://scenes/door.tscn" id="6_f13cy"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_5mdkk")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall_left" parent="Walls" instance=ExtResource("2_lnwpm")]
+position = Vector2(-52, 540)
+rotation = 1.57079
+scale = Vector2(1.10128, 0.999967)
+
+[node name="Wall_right" parent="Walls" instance=ExtResource("2_lnwpm")]
+position = Vector2(1977, 550)
+rotation = 1.57079
+scale = Vector2(1.10128, 0.999967)
+
+[node name="Wall_down" parent="Walls" instance=ExtResource("2_lnwpm")]
+position = Vector2(977, 1138)
+scale = Vector2(1.94945, 1)
+
+[node name="Wall_up" parent="Walls" instance=ExtResource("2_lnwpm")]
+position = Vector2(984, -53)
+scale = Vector2(1.94945, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_w5fnd")]
+position = Vector2(149, 251)
+
+[node name="Laser" parent="." instance=ExtResource("4_14ux8")]
+position = Vector2(1024, 192)
+rotation = 1.5708
+
+[node name="Target" parent="." instance=ExtResource("5_v1tef")]
+position = Vector2(1024, 920)
+
+[node name="Door" parent="." instance=ExtResource("6_f13cy")]
+position = Vector2(1664, 896)

@@ -1,14 +1,10 @@
-class_name Player
 extends CharacterBody2D
+
+const SPEED = 500.0
+const LEVEL_TEMPLATE = "res://scenes/levels/level%s.tscn"
 
 @onready var influence: Area2D = $Influence
 var influencing_laser: Laser
-
-const SPEED = 500.0
-
-func _ready():
-	influence.connect("body_entered", _on_body_entered)
-	influence.connect("body_exited", _on_body_exited)
 
 func _physics_process(_delta):
 	var direction_horizontal = Input.get_axis("left", "right")
@@ -23,10 +19,20 @@ func _physics_process(_delta):
 func _on_body_entered(body: Node2D):
 	if body is Laser:
 		influencing_laser = body
-	elif body is Door and body.is_open:
-		print("You win")
-		queue_free()
 
 func _on_body_exited(body: Node2D):
 	if body == influencing_laser:
 		influencing_laser = null
+
+func _on_area_entered(area: Area2D):
+	if area is Door and area.is_open:
+		next_level()
+		queue_free()
+
+func next_level():
+	var current_scene = get_tree().current_scene.scene_file_path
+	var next_level_number = current_scene.to_int() + 1
+	var next_scene = LEVEL_TEMPLATE % next_level_number
+	var result = get_tree().change_scene_to_file(next_scene)
+	if result != OK:
+		get_tree().change_scene_to_file(LEVEL_TEMPLATE % "_end")

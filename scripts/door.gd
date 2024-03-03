@@ -1,5 +1,5 @@
 class_name Door
-extends StaticBody2D
+extends Area2D
 
 @onready var sprite: Polygon2D = $Polygon2D
 var is_open = false
